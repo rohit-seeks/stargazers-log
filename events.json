@@ -1,0 +1,38 @@
+[
+  {
+    "name": "freeCodeCamp",
+    "fullName": "freeCodeCamp/freeCodeCamp",
+    "description": "Learn to code for free with thousands of interactive lessons and projects.",
+    "language": "TypeScript",
+    "stars": 430000,
+    "url": "https://github.com/freeCodeCamp/freeCodeCamp",
+    "starredAt": "2025-02-14"
+  },
+  {
+    "name": "VS Code",
+    "fullName": "microsoft/vscode",
+    "description": "Visual Studio Code is a lightweight but powerful source code editor.",
+    "language": "TypeScript",
+    "stars": 170000,
+    "url": "https://github.com/microsoft/vscode",
+    "starredAt": "2025-01-28"
+  },
+  {
+    "name": "Tailwind CSS",
+    "fullName": "tailwindlabs/tailwindcss",
+    "description": "A utility-first CSS framework for rapidly building custom user interfaces.",
+    "language": "CSS",
+    "stars": 85000,
+    "url": "https://github.com/tailwindlabs/tailwindcss",
+    "starredAt": "2024-12-09"
+  },
+  {
+    "name": "Astro",
+    "fullName": "withastro/astro",
+    "description": "The web framework for content-driven websites.",
+    "language": "TypeScript",
+    "stars": 50000,
+    "url": "https://github.com/withastro/astro",
+    "starredAt": "2024-10-17"
+  }
+]
