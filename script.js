@@ -19,14 +19,16 @@ function createRepositoryItem(repository) {
 
   const link = document.createElement('a');
   link.className = 'repository-link';
-  link.href = repository.url;
+  link.href = repository.website || repository.url || '#';
   link.textContent = repository.name;
   link.target = '_blank';
   link.rel = 'noreferrer';
 
   const date = document.createElement('time');
   date.dateTime = repository.starredAt;
-  date.textContent = `Starred ${formatDate(repository.starredAt)}`;
+  date.textContent = repository.website
+    ? `Launched ${formatDate(repository.starredAt)}`
+    : `Starred ${formatDate(repository.starredAt)}`;
 
   const fullName = document.createElement('p');
   fullName.className = 'repository-full-name';
@@ -43,11 +45,11 @@ function createRepositoryItem(repository) {
   language.className = 'repository-language';
   language.textContent = repository.language;
 
-  const stars = document.createElement('span');
-  stars.textContent = `${repository.stars.toLocaleString('en')} stars`;
+  const site = document.createElement('span');
+  site.textContent = repository.website ? 'Project website' : `${Number(repository.stars || 0).toLocaleString('en')} stars`;
 
   titleRow.append(link, date);
-  meta.append(language, stars);
+  meta.append(language, site);
   item.append(titleRow, fullName, description, meta);
 
   return item;
@@ -62,12 +64,12 @@ async function loadRepositories() {
 
     const repositories = await response.json();
     repositoryList.replaceChildren(...repositories.map(createRepositoryItem));
-    repositoryCount.textContent = `${repositories.length} repositories`;
+    repositoryCount.textContent = `${repositories.length} projects`;
     repositoryStatus.textContent = repositories.length
       ? ''
-      : 'No starred repositories yet.';
+      : 'No projects yet.';
   } catch (error) {
-    repositoryStatus.textContent = 'Could not load repositories. Please try again later.';
+    repositoryStatus.textContent = 'Could not load project list. Please try again later.';
     console.error('Unable to load events.json:', error);
   }
 }
